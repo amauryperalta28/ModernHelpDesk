@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7b49833bc7d34e3e8d894bd82e35257e" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="HelpDeskApfModel.DEPARTAMENTOS" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.DIVISION" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.ESTATUS" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.GRUPOS" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.ISSUES" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.ORGANIZACION" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.PREGUNTAS" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.PRIORIDAD" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.TICKETS" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.TICKETS_RESPUESTA" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.USER_GROUPS" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.USUARIOS" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="HelpDeskApfModel.FK_DIVISION_DEPARTAMENTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpDeskApfModel.FK_TICKETS_DEPARTAMENTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpDeskApfModel.FK_TICKETS_DIVISION" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpDeskApfModel.FK_TICKETS_ESTATUS" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpDeskApfModel.FK_TICKETS_ISSUES" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpDeskApfModel.FK_TICKETS_ORGANIZACION" ManuallyRouted="false" />
+        <AssociationConnector Association="HelpDeskApfModel.FK_TICKETS_USUARIOS" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HelpDeskApfModel.USER_FOLLOWED_USER" Width="1.5" PointX="5.875" PointY="13.75" />
+        <AssociationConnector Association="HelpDeskApfModel.FK_USER_FOLLOWED_USER_USER_FOLLOWED_USER" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
