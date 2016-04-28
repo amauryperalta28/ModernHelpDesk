@@ -55,14 +55,30 @@ namespace ModernHelpDesk.Library.Helpers
             return result;
         }
 
-        public static User_Followed_User GetUserSeguidoByPrimaryKey(int UserId, int UserIdFollowed)
+        public static bool IsFollowingUsers(int UserId)
+        {
+            bool result = false;
+
+            using (HelpDeskApfEntities context= new HelpDeskApfEntities())
+            {
+                var count = context.USER_FOLLOWED_USER.Count(x => x.UserID == UserId);
+
+                if (count >0)
+                {
+                    result = true;
+                }
+                
+            }
+            return result;
+        }
+
+        public static User_Followed_User GetUserFollowedByPrimaryKey(int UserId)
         {
             User_Followed_User result = new User_Followed_User();
 
             using (HelpDeskApfEntities context = new HelpDeskApfEntities())
             {
-                var queryResult = context.USER_FOLLOWED_USER.SingleOrDefault(x => x.UserID == UserId && 
-                                                                                 x.UserIdFollowed == UserIdFollowed);
+                var queryResult = context.USER_FOLLOWED_USER.SingleOrDefault(x => x.UserID == UserId );
 
                 if (queryResult != null)
                 {

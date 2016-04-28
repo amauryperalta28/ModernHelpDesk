@@ -11,14 +11,8 @@ namespace ModernHelpDesk.Service.Controllers
 {
     public class TicketsController : ApiController
     {
-        // GET api/tickets
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         [HttpGet]
-        public List<Tickets> GetAll()
+        public HttpResponseMessage GetAll()
         {
             List<Tickets> Tickets = TicketsHelper.GetAll();
             bool TheresData = Tickets.Count > 0;
@@ -28,7 +22,33 @@ namespace ModernHelpDesk.Service.Controllers
                 throw new HttpResponseException(HttpStatusCode.NoContent);
             }
 
-            return Tickets;
+            return  Request.CreateResponse(HttpStatusCode.OK,Tickets);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetTicketsById(int id)
+        {
+            if (!TicketsHelper.Exists(id))
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            Tickets ticket = TicketsHelper.GetTicketByPrimaryKey(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, ticket); ;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage Save([FromBody] Tickets ticket)
+        {
+            bool SuccesfullSaved = TicketsHelper.Save(ticket);
+
+            if (!SuccesfullSaved)
+            {
+                throw new HttpResponseException(HttpStatusCode.InternalServerError);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.Created);
         }
 
         // GET api/tickets/5

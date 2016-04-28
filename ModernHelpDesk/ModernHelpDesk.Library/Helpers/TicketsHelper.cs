@@ -69,6 +69,22 @@ namespace ModernHelpDesk.Library.Helpers
             return result;
         }
 
+        public static bool Exists(int id)
+        {
+            bool result = false;
+
+            using (HelpDeskApfEntities context = new HelpDeskApfEntities())
+            {
+                var count = context.TICKETS.Count(x => x.Id == id);
+
+                if (count > 0)
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
+
         public static Tickets GetTicketByPrimaryKey(int id)
         {
             Tickets result = new Tickets();

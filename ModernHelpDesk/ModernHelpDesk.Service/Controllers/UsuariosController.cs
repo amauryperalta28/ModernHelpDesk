@@ -12,7 +12,7 @@ namespace ModernHelpDesk.Service.Controllers
     public class UsuariosController : ApiController
     {
         [HttpGet]
-        public HttpResponseMessage GetAll()
+        public HttpResponseMessage GetAllUsers()
         {
             List<Usuarios> Usuarios = UsuariosHelper.GetAll();
             bool TheresData = Usuarios.Count > 0;
@@ -26,7 +26,7 @@ namespace ModernHelpDesk.Service.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage GetUsuarioById(int Id)
+        public HttpResponseMessage GetUserById(int Id)
         {
             if (!UsuariosHelper.UserExist(Id))
             {
@@ -51,6 +51,45 @@ namespace ModernHelpDesk.Service.Controllers
             return Request.CreateResponse(HttpStatusCode.Created);
         }
 
+        [HttpGet]
+        public HttpResponseMessage GetAllUsersSeguidos()
+        {
+            List<User_Followed_User> Usuarios = UsuariosSeguidosHelper.GetAll();
+            bool TheresData = Usuarios.Count > 0;
+
+            if (!TheresData)
+            {
+                throw new HttpResponseException(HttpStatusCode.NoContent);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, Usuarios);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetUserFollowedById(int UserId)
+        {
+            if (!UsuariosSeguidosHelper.IsFollowingUsers(UserId))
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            User_Followed_User usr = UsuariosSeguidosHelper.GetUserFollowedByPrimaryKey(UserId);
+
+            return Request.CreateResponse(HttpStatusCode.OK, usr);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage Save(User_Followed_User usr)
+        {
+            bool SuccesfullSaved = UsuariosSeguidosHelper.Save(usr);
+
+            if (!SuccesfullSaved)
+            {
+                throw new HttpResponseException(HttpStatusCode.InternalServerError);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.Created);
+        }
         // GET api/usuarios/5
         public string Get(int id)
         {

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernHelpDesk.Library", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernHelpDesk.Service", "ModernHelpDesk.Service\ModernHelpDesk.Service.csproj", "{F96F4DE4-D2A1-4CDF-90B1-AC7A7666A933}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernHelpDesk.Test", "ModernHelpDesk.Test\ModernHelpDesk.Test.csproj", "{65117460-C84B-489C-A842-1E0D0D2387D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{F96F4DE4-D2A1-4CDF-90B1-AC7A7666A933}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F96F4DE4-D2A1-4CDF-90B1-AC7A7666A933}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F96F4DE4-D2A1-4CDF-90B1-AC7A7666A933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65117460-C84B-489C-A842-1E0D0D2387D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65117460-C84B-489C-A842-1E0D0D2387D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65117460-C84B-489C-A842-1E0D0D2387D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65117460-C84B-489C-A842-1E0D0D2387D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
